@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const password = 'mVcOzchZAN12ndaW'
+const password = 'YOURPASSWORD'
 
 
 mongoose.connect('mongodb+srv://rest-api:' + password + '@nodejs-express-rest-api-gmoic.mongodb.net/task-manager', {
