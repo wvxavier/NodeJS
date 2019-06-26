@@ -1,5 +1,5 @@
 # NodeJS
 
-DNX NodeJS API Sample app
+NodeJS Express API Sample 
 
 CRUD operations on Relational Databases
