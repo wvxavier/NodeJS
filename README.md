@@ -1,3 +1,5 @@
 # NodeJS
 
-Node JS for CRUD relational databases
+DNX NodeJS API Sample app
+
+CRUD operations on Relational Databases
