@@ -78,14 +78,13 @@ userSchema.statics.findByCredentials = async (email, password) => {
 }
 
 
-//Incrementa a funcao nativa usando schema - Needs to be standard function
 userSchema.pre('save', async function (next) {
-    //References the user create in this function
+  
     const user = this
     if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
-    //Important, it saves the user
+   
     next()
 })
 

@@ -6,7 +6,7 @@ const router = new express.Router()
 
 
 //HTTP ROUTES / ENDPOINTS
-//Async changes the Promisse behaiviour, it alwasys will return a Promise - better than Promise chaining
+//Async changes the Promisse behaiviour, it alwasys will return a Promise
 
 router.post('/tasks', async (req, res) => {
     const task = new Task(req.body)
@@ -18,13 +18,7 @@ router.post('/tasks', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-    /*
-    task.save().then(() => {
-        res.status(201).send(task)
-    }).catch((error) => {
-        res.status(400).send(error)
-    })
-    */
+ 
 
 })
 
@@ -38,16 +32,6 @@ router.get('/tasks', async (req, res) => {
         res.status(400).send(error)
     }
 
-    /*    
-        if (!task) {
-            return res.status(404).send('Could not find Task')
-        }
-        res.status(200).send(task)
-    
-    }).catch((error) => {
-        res.status(400).send(error)
-    })
-    */
 })
 
 router.get('/tasks/:id', async (req, res) => {
@@ -62,16 +46,7 @@ router.get('/tasks/:id', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-    /*
-    Task.findById(req.params.id).then((task) => {
-        if (!task) {
-            return res.status(404).send('Could not find Task')
-        }
-        res.status(200).send(task)
-    }).catch((eoor) => {
-        res.status(400).send(error)
-    })
-    */
+
 })
 
 router.patch('/tasks/:id', async (req, res) => {

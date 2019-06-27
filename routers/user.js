@@ -77,19 +77,7 @@ router.get('/users/:id', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-    /*
-    
-        User.findById(req.params.id).then((result) => {
-            if (!result) {
-                return res.status(404).send('Could not find User')
-            }
-            res.status(200).send(result)
-    
-        }).catch((error) => {
-            res.status(400).send(error)
-        })
-        */
-})
+ })
 
 
 router.patch('/users/:id', async (req, res) => {
@@ -102,9 +90,7 @@ router.patch('/users/:id', async (req, res) => {
     ]
     //Object.keys converst the JSON body in array
     const updates = Object.keys(req.body)
-    // every() => {} Runs this function for everu single item in the array
-    // OR sintaxe in 1 line:   const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
-    const isValidOperation = updates.every((update) => {
+    /onst isValidOperation = updates.every((update) => {
         return allowedUpdates.includes(update)
     })
 
@@ -116,14 +102,12 @@ router.patch('/users/:id', async (req, res) => {
         const user = await User.findById(req.params.id)
 
         updates.forEach((update) => {
-            //[@] notation, dynamic
+           
             user[update] = req.body[update]
         })
 
         await user.save()
-        //Old Method to update because does not inconporate hashin on method save()
-        //const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
-
+        
         if (!user) {
 
             return res.status(404).send()
